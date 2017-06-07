@@ -13,15 +13,15 @@ public class Bug {
 
 			JavaType baseJT;
 			JavaType subJT;
-			if (args.length == 0 || args[0].equals("base")) {
-				// base constructed first
-				baseJT = tf.constructType(Base.class);
-				subJT = tf.constructType(Sub.class);
-			}
-			else {
+			if (args.length != 0 && args[0].equals("sub")) {
 				// sub constructed first
 				subJT = tf.constructType(Sub.class);
 				baseJT = tf.constructType(Base.class);
+			}
+			else {
+				// base constructed first
+				baseJT = tf.constructType(Base.class);
+				subJT = tf.constructType(Sub.class);
 			}
 
 			System.out.println("baseJT = " + baseJT);
