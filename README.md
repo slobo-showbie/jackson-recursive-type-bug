@@ -9,7 +9,6 @@ This jackson bug prevents a sub class' properties from being serialized when
 
 You can using the maven exec plugin:
 
-Runs by passing the base class first into the TypeFactory (bug is triggered)
 ```
 mvn compile exec:java -Dexec.mainClass="Bug"
 ```
@@ -21,7 +20,10 @@ subJT.getSuperClass()  = [recursive type; Bug$Base
 json(sub) = {"sub":2}      // missing "base":1 !!!
 ```
 
-Runs by passing the sub class first inot the TypeFactory (bug is not triggered)
+## Running (Alternate)
+
+Runs by passing the sub class first into the TypeFactory (bug is not triggered)
+
 ```
 mvn compile exec:java -Dexec.mainClass="Bug" -Dexec.args="sub"
 ```
